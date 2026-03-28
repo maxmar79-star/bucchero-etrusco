@@ -1,31 +1,3 @@
-Skip to content
-maxmar79-star
-bucchero-itis
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-bucchero-itis
-/style.css
-Go to file
-t
-maxmar79-star
-maxmar79-star
-Update style.css
-07ada94
- · 
-3 days ago
-128 lines (112 loc) · 4.04 KB
-
-Code
-
-Blame
 :root {
     --orange: #e67e22;
     --orange-hover: #d35400;
@@ -154,10 +126,3 @@ footer { text-align: center; padding: 50px; background: #000; color: #555; font-
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
-
-
-model-viewer::part(progress-bar-fill) {
-    background-color: var(--orange) !important;
-}
-
-
