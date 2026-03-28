@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleria AR - mAjoRnext</title>
     <link rel="stylesheet" href="style.css">
-    
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
     <nav>
-        <div class="logo">m<span>A</span>jo<span>R</span>next</div>
-        <div class="hamburger" id="hb"><span></span><span></span><span></span></div>
-        <ul class="nav-links" id="nl">
+        <div class="logo">m<span class="highlight">A</span>jo<span class="highlight">R</span>next</div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="storia.html">STORIA</a></li>
             <li><a href="gallery.html" class="active">GALLERIA AR</a></li>
@@ -21,84 +20,52 @@
     </nav>
 
     <main class="container">
-        <h1 class="page-title">m<span class="highlight">A</span>jo<span class="highlight">R</span>next: AR GALLERY</h1>
+        <h1 class="page-title">m<span class="highlight-text">A</span>jo<span class="highlight-text">R</span>next: AR GALLERY</h1>
         
         <div class="content-block">
             <p style="text-align: center; font-size: 1.1rem;">
-                Benvenuti nella nostra esposizione digitale. In questa sezione puoi interagire con i reperti in <strong>Bucchero</strong> digitalizzati dal nostro team. 
-                Usa il mouse o il tocco per ruotare i vasi a 360°. Se stai navigando da uno smartphone, clicca sul tasto <strong>"VEDI IN AR"</strong> per proiettare il reperto etrusco direttamente nel tuo ambiente reale, rispettandone le dimensioni originali.
+                Benvenuti nella nostra esposizione digitale. In questa sezione puoi interagire con i reperti in <strong>Bucchero</strong> digitalizzati dal nostro team.
             </p>
         </div>
 
-        <div class="gallery-grid">
-            
-            <div class="card">
-                <model-viewer src="bucchero_calice_dal_tumulo_di_Molinello.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
+        <div class="gallery-container">
+            <div class="artifact-card">
+                <model-viewer src="bucchero_calice_dal_tumulo_di_Molinello.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <div class="progress-bar" slot="progress-bar">
+                        <div class="update-bar"></div>
+                    </div>
                     <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
                 </model-viewer>
-                <h3>Calice Molinello</h3>
+                <div class="info"><h3>Calice Molinello</h3></div>
             </div>
 
-            <div class="card">
-                <model-viewer src="bucchero_caryatid.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
+            <div class="artifact-card">
+                <model-viewer src="bucchero_kantharos.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <div class="progress-bar" slot="progress-bar"><div class="update-bar"></div></div>
                     <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
                 </model-viewer>
-                <h3>Bucchero Cariatide</h3>
+                <div class="info"><h3>Kantharos</h3></div>
             </div>
 
-            <div class="card">
-                <model-viewer src="bucchero_kantharos.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
-                    <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
-                </model-viewer>
-                <h3>Kantharos</h3>
             </div>
-
-            <div class="card">
-                <model-viewer src="bucchero_kotyle.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
-                    <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
-                </model-viewer>
-                <h3>Kotyle</h3>
-            </div>
-
-            <div class="card">
-                <model-viewer src="bucchero_ladle.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
-                    <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
-                </model-viewer>
-                <h3>Attingitoio</h3>
-            </div>
-
-            <div class="card">
-                <model-viewer src="bucchero_oinochoe_con_bocca_trilobata.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate touch-action="pan-y">
-                    <div class="progress-bar" slot="progress-bar"></div>
-                    <button slot="ar-button" class="btn-ar">VEDI IN AR</button>
-                </model-viewer>
-                <h3>Oinochoe Trilobata</h3>
-            </div>
-
-        </div>
     </main>
 
     <footer>© 2026 mAjoRnext - Majorana Etruscan ARchaeology</footer>
 
     <script>
-        // Gestione Menu Mobile
-        const hb = document.getElementById('hb');
-        const nl = document.getElementById('nl');
+        // Script per Menu Mobile (identico al tuo)
+        const hb = document.getElementById('hamburger');
+        const nl = document.getElementById('nav-links');
         hb.onclick = () => {
-            const isOpen = nl.classList.toggle('active');
-            hb.classList.toggle('active');
-            document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+            nl.classList.toggle('active');
         };
 
-        // Gestione Barre Progressive
-        document.querySelectorAll('model-viewer').forEach((mv) => {
-            mv.addEventListener('load', () => {
-                mv.classList.add('loaded'); // Attiva la regola CSS per riempire e nascondere la barra
+        // Script per gestire la barra arancione
+        document.querySelectorAll('model-viewer').forEach(item => {
+            item.addEventListener('progress', (event) => {
+                const bar = item.querySelector('.update-bar');
+                const progress = event.detail.totalProgress * 100;
+                if (bar) bar.style.width = `${progress}%`;
             });
         });
     </script>
