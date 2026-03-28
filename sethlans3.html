@@ -6,12 +6,35 @@
     <title>mAjoRnext - Sethlans 3.0</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS aggiuntivo per rendere i riquadri quadrati e identici alla gallery */
+        /* Setup riquadri quadrati e bordino coerente */
+        .artifact-card {
+            aspect-ratio: 1 / 1; 
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            border-left: 6px solid var(--orange);
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            display: block;
+        }
+
         .artifact-card img {
             width: 100%;
-            height: 400px; /* Altezza fissa come i model-viewer della gallery */
+            height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* Nasconde il box info se vuoto per non rompere il quadrato */
+        .info:empty {
+            display: none;
+        }
+
+        /* Spaziatura per il testo descrittivo */
+        .content-block p {
+            margin-bottom: 15px;
+            text-align: justify;
         }
     </style>
 </head>
@@ -22,7 +45,7 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="storia.html">STORIA</a></li>
-            <li><a href="gallery.html" class="active">GALLERIA AR</a></li>
+            <li><a href="gallery.html">GALLERIA AR</a></li>
             <li><a href="sethlans3.html" class="active">SETHLANS 3.0</a></li>
             <li><a href="progetto.html">PROGETTO</a></li>
         </ul>
@@ -32,37 +55,33 @@
         <h1 class="page-title">m<span class="highlight-text">A</span>jo<span class="highlight-text">R</span>next: SETHLANS 3.0</h1>
         
         <div class="content-block">
-            <p>Il progetto <strong>Sethlans 3.0</strong>, realizzato nei laboratori di meccanica dell'ITIS Majorana di Cassino, trae il suo nome dalla divinità etrusca del fuoco, dell'artigianato e della metallurgia. Sethlans, l'equivalente etrusco del greco Efesto e del romano Vulcano, non era solo il dio che governava le forge, ma era il simbolo stesso della straordinaria maestria tecnica degli Etruschi nella lavorazione dei metalli.</p>
-            <br>
+            <h2 class="highlight-text" style="margin-bottom: 20px;">Mito, Storia e Innovazione</h2>
+            <p>Il progetto <strong>Sethlans 3.0</strong>, realizzato nei laboratori di meccanica dell'<strong>ITIS Majorana di Cassino</strong>, trae il suo nome dalla divinità etrusca del fuoco, dell'artigianato e della metallurgia. Sethlans, l'equivalente etrusco del greco Efesto e del romano Vulcano, non era solo il dio che governava le forge, ma era il simbolo stesso della straordinaria maestria tecnica degli Etruschi nella lavorazione dei metalli.</p>
+            
             <p>La scelta del nome e dell'estetica di Sethlans 3.0 è una fusione di mito e storia della ceramica. Il <strong>Bucchero</strong>, ceramica iconica degli Etruschi, era famoso per la sua finitura nera e lucida, ottenuta non tramite pittura, ma attraverso un particolare processo di cottura in riduzione di ossigeno che trasformava l'ossido di ferro nell'argilla. Questo processo mirava a imitare la lucentezza dei metalli preziosi, come l'argento annerito o il bronzo brunito, offrendo un'alternativa più accessibile ma ugualmente raffinata.</p>
-            <br>
+            
             <p>Il manufatto Sethlans 3.0, pur essendo un prodotto di ingegneria moderna, adotta deliberatamente la tonalità nera profonda e la finitura opaca, quasi "vellutata", che richiama l'estetica profonda del Bucchero. Attraverso moderne tecniche di trattamento superficiale, abbiamo voluto ricreare quella stessa illusione visiva, unendo il mito della metallurgia etrusca con l'innovazione del XXI secolo, creando un ponte tra il passato e il futuro.</p>
         </div>
 
         <h2 class="highlight-text" style="text-align: center; margin: 50px 0 30px 0;">GALLERIA</h2>
         
         <div class="gallery-container">
-            
             <div class="artifact-card">
                 <img src="Sethlans3_3.jpg">
                 <div class="info"></div>
             </div>
-
             <div class="artifact-card">
                 <img src="Sethlans3_1.jpg">
                 <div class="info"></div>
             </div>
-
             <div class="artifact-card">
                 <img src="Sethlans3_2.jpg">
                 <div class="info"></div>
             </div>
-
             <div class="artifact-card">
                 <img src="Sethlans3_4.jpg">
                 <div class="info"></div>
             </div>
-
         </div>
     </main>
 
@@ -74,6 +93,7 @@
         hb.onclick = () => {
             hb.classList.toggle('active');
             nl.classList.toggle('active');
+            document.body.style.overflow = nl.classList.contains('active') ? 'hidden' : 'auto';
         };
     </script>
 </body>
