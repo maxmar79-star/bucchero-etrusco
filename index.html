@@ -5,16 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mAjoRnext - Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gestione specifica per i bottoni nella Hero */
+        .hero-action-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Spazio tra i due bottoni */
+            margin-top: 30px;
+        }
+
+        .hero-action-container .btn-orange {
+            width: 280px; /* Larghezza fissa per renderli identici */
+            text-align: center;
+            margin: 0; /* Reset margini per usare il gap del container */
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="logo">m<span class="highlight">A</span>jo<span class="highlight">R</span>next</div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html" class="active">HOME</a></li>
             <li><a href="storia.html">STORIA</a></li>
-            <li><a href="gallery.html" class="active">GALLERIA AR</a></li>
-            <li><a href="sethlans3.html" class="active">SETHLANS 3.0</a></li>
+            <li><a href="gallery.html">GALLERIA AR</a></li>
+            <li><a href="sethlans3.html">SETHLANS 3.0</a></li>
             <li><a href="progetto.html">PROGETTO</a></li>
         </ul>
     </nav>
@@ -23,7 +39,11 @@
         <div class="hero-small">
             <h1>m<span class="highlight-text">A</span>jo<span class="highlight-text">R</span>next</h1>
             <p>Il viaggio nel tempo inizia con la tecnologia dell'<strong>ITIS Majorana di Cassino</strong>.</p>
-            <a href="gallery.html" class="btn-orange">ESPLORA LA GALLERIA</a>
+            
+            <div class="hero-action-container">
+                <a href="gallery.html" class="btn-orange">ESPLORA LA GALLERIA</a>
+                <a href="sethlans3.html" class="btn-orange">SETHLANS 3.0</a>
+            </div>
         </div>
     </header>
 
