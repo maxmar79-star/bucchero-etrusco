@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria AR - mAjoRnext</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <style>
+        /* Stili aggiuntivi solo per gli elementi AR, senza modificare style.css */
+        model-viewer {
+            --progress-bar-color: #e67e22; /* Barra di caricamento arancione */
+            position: relative;
+        }
+
+        /* Pulsante AR personalizzato arancione */
+        .btn-ar-custom {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        /* Nasconde il pulsante AR predefinito */
+        model-viewer::part(ar-button) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">m<span class="highlight">A</span>jo<span class="highlight">R</span>next</div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="storia.html">STORIA</a></li>
+            <li><a href="gallery.html" class="active">GALLERIA AR</a></li>
+            <li><a href="sethlans3.html">SETHLANS 3.0</a></li>
+            <li><a href="progetto.html">PROGETTO</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">m<span class="highlight-text">A</span>jo<span class="highlight-text">R</span>next: AR GALLERY</h1>
+        
+        <div class="gallery-container">
+            <div class="artifact-card">
+                <model-viewer src="bucchero_kantharos.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Kantharos</h3></div>
+            </div>
+
+            <div class="artifact-card">
+                <model-viewer src="bucchero_calice_dal_tumulo_di_Molinello.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Calice di Molinello</h3></div>
+            </div>
+
+            <div class="artifact-card">
+                <model-viewer src="bucchero_caryatid.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Cariatide</h3></div>
+            </div>
+
+            <div class="artifact-card">
+                <model-viewer src="bucchero_kotyle.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Kotyle</h3></div>
+            </div>
+
+            <div class="artifact-card">
+                <model-viewer src="bucchero_ladle.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Attingitoio</h3></div>
+            </div>
+
+            <div class="artifact-card">
+                <model-viewer src="bucchero_oinochoe_con_bocca_trilobata.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls shadow-intensity="1" auto-rotate touch-action="pan-y">
+                    <button slot="ar-button" class="btn-ar-custom">VEDI IN AR</button>
+                </model-viewer>
+                <div class="info"><h3>Oinochoe Trilobata</h3></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2026 mAjoRnext - Majorana Etruscan ARchaeology</footer>
+
+    <script>
+        const hb = document.getElementById('hamburger');
+        const nl = document.getElementById('nav-links');
+        hb.onclick = () => {
+            nl.classList.toggle('active');
+            hb.classList.toggle('active');
+        };
+    </script>
+</body>
+</html>
