@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleria AR - mAjoRnext</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
     <style>
-        /* Mantiene style.css inalterato, aggiunge solo logica foto */
+        /* CSS INTERNO: Non modifica il tuo style.css esterno */
         model-viewer {
             --progress-bar-color: #e67e22; 
             position: relative;
             background-color: #1a1a1a;
             width: 100%;
-            height: 400px;
+            height: 400px; /* Altezza definita nel tuo style.css */
+            --poster-color: transparent;
         }
 
-        /* Pulsante AR con lo stesso ID e logica del tuo esempio */
-        .ar-button-style {
+        /* Pulsante AR con ID identico al tuo esempio funzionante */
+        #ar-button {
             background-color: #e67e22;
             border-radius: 50px;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
             color: white;
             font-weight: bold;
             font-size: 14px;
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 4px 15px rgba(0,0,0,0.6);
@@ -36,15 +36,19 @@
             gap: 8px;
             z-index: 100;
             cursor: pointer;
-            text-transform: uppercase;
         }
 
-        /* Questa riga è FONDAMENTALE per lo scatto foto: 
-           nasconde il tasto quando AR è attiva lasciando spazio ai comandi Google */
-        model-viewer[ar-status="session-started"] .ar-button-style {
+        #ar-button:active {
+            background-color: #d35400;
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        /* Nasconde il tasto quando AR è attiva - Cruciale per sbloccare la fotocamera nativa */
+        model-viewer[ar-status="session-started"] #ar-button {
             display: none;
         }
 
+        /* Nasconde l'icona AR predefinita di Google */
         model-viewer::part(ar-button) {
             display: none;
         }
@@ -72,43 +76,43 @@
         
         <div class="gallery-container">
             <div class="artifact-card">
-                <model-viewer src="bucchero_kantharos.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_kantharos.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Kantharos">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Kantharos</h3></div>
             </div>
 
             <div class="artifact-card">
-                <model-viewer src="bucchero_calice_dal_tumulo_di_Molinello.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_calice_dal_tumulo_di_Molinello.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Calice">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Calice di Molinello</h3></div>
             </div>
 
             <div class="artifact-card">
-                <model-viewer src="bucchero_caryatid.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_caryatid.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Cariatide">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Cariatide</h3></div>
             </div>
 
             <div class="artifact-card">
-                <model-viewer src="bucchero_kotyle.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_kotyle.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Kotyle">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Kotyle</h3></div>
             </div>
 
             <div class="artifact-card">
-                <model-viewer src="bucchero_ladle.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_ladle.glb" ar ar-modes="webxr scene-viewer quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Attingitoio">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Attingitoio</h3></div>
             </div>
 
             <div class="artifact-card">
-                <model-viewer src="bucchero_oinochoe_con_bocca_trilobata.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls shadow-intensity="1.5" auto-rotate touch-action="pan-y">
-                    <button slot="ar-button" class="ar-button-style">🔍 VEDI IN AR</button>
+                <model-viewer src="bucchero_oinochoe_con_bocca_trilobata.glb" ar ar-modes="scene-viewer webxr quick-look" ar-placement="floor" camera-controls touch-action="pan-y" shadow-intensity="1.5" shadow-softness="1" auto-rotate alt="Oinochoe">
+                    <button slot="ar-button" id="ar-button">🔍 VEDI IN AR</button>
                 </model-viewer>
                 <div class="info"><h3>Oinochoe Trilobata</h3></div>
             </div>
@@ -117,6 +121,7 @@
 
     <footer>© 2026 mAjoRnext - Majorana Etruscan ARchaeology</footer>
 
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <script>
         const hb = document.getElementById('hamburger');
         const nl = document.getElementById('nav-links');
