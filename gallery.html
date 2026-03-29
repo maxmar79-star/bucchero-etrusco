@@ -8,14 +8,12 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     
     <style>
-        /* CSS INTERNO: Mantiene style.css inalterato */
+        /* CSS INTERNO: Non modifica il tuo style.css esterno */
         model-viewer {
-            --progress-bar-color: #e67e22; /* Barra caricamento arancione */
+            --progress-bar-color: #e67e22; 
             position: relative;
-            background-color: #111;
         }
 
-        /* Pulsante AR personalizzato arancione al centro in basso */
         .btn-ar-custom {
             background-color: #e67e22;
             color: white;
@@ -25,24 +23,15 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            font-size: 14px;
-            z-index: 10;
-            
-            /* Posizionamento esatto al centro in basso */
+            /* Centrato in basso */
             position: absolute;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            
-            transition: background 0.3s ease, transform 0.2s;
+            z-index: 10;
         }
 
-        .btn-ar-custom:hover {
-            background-color: #d35400;
-            transform: translateX(-50%) scale(1.05);
-        }
-
-        /* Nasconde il pulsante AR predefinito di sistema per usare il nostro */
+        /* Nasconde il pulsante standard per usare il nostro arancione */
         model-viewer::part(ar-button) {
             display: none;
         }
@@ -63,6 +52,10 @@
 
     <main class="container">
         <h1 class="page-title">m<span class="highlight-text">A</span>jo<span class="highlight-text">R</span>next: AR GALLERY</h1>
+
+        <div class="content-block">
+            <p>Esplora la collezione in Realtà Aumentata. Una volta attivata la modalità AR, usa il tasto della fotocamera del tuo smartphone per scattare una foto al reperto nel tuo ambiente.</p>
+        </div>
         
         <div class="gallery-container">
             <div class="artifact-card">
